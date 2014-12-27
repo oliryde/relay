@@ -1,10 +1,10 @@
-require 'pi_piper'
+require 'wiringpi'
 
 class Pin
   def initialize(pin_number)
-    @pin = PiPiper::Pin.new(:pin => pin_number, :direction => :out)
-    @pin.on
+    @pin = WiringPi::GPIO.new
     @pin_state = false
+    @pin_number = pin_number
   end
 
   def toggle
@@ -21,14 +21,14 @@ class Pin
 
   def on
     unless @pin_state
-      @pin.off
+      @pin.write(@pin_number, 0)
       @pin_state = true
     end
   end
 
   def off
     if @pin_state
-      @pin.on
+      @pin.write(@pin_number, 1)
       @pin_state = false
     end
   end

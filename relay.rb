@@ -2,7 +2,7 @@ require_relative 'pin'
 
 class Relay
   def initialize
-    @pin_numbers = [25, 8, 7, 11, 9, 10, 22, 17]
+    @pin_numbers = [6, 10, 11, 14, 13, 12, 3, 0]
     @pins = []
     @pin_numbers.each do |pin_number|
       pin = Pin.new(pin_number)

@@ -1,6 +1,6 @@
 require_relative 'pin'
 
-pin = Pin.new(25)
+pin = Pin.new(13)
 
 
 
